@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/sanity.png?fileID=2800000&amp;guid=95f81ee80f4d1e045b9a1006c4e0dd56&amp;type=3#sanity&quot;); -unity-background-scale-mode: scale-to-fit; width: 160px; height: 160px;" />
+</ui:UXML>
