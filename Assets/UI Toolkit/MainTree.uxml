@@ -3,6 +3,15 @@
     <ui:VisualElement name="Screen" style="flex-grow: 1;">
         <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: column;">
             <ui:VisualElement name="InsanityPanel" style="flex-direction: row; height: 140px;" />
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1; align-items: stretch; justify-content: flex-end;">
+                <ui:VisualElement name="PillsPanel" style="flex-grow: 1; flex-direction: row; align-self: flex-end; flex-wrap: nowrap; padding-bottom: 48px; max-width: 50%; max-height: 160px;">
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" style="background-image: url(&quot;project://database/Assets/Sprites/Pill.png?fileID=2800000&amp;guid=fdded61763c332a4f84b1552f8ff8a09&amp;type=3#Pill&quot;); -unity-background-scale-mode: scale-to-fit; width: 120px; height: 120px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" style="background-image: url(&quot;project://database/Assets/Sprites/Pill.png?fileID=2800000&amp;guid=fdded61763c332a4f84b1552f8ff8a09&amp;type=3#Pill&quot;); -unity-background-scale-mode: scale-to-fit; width: 120px; height: 120px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" style="background-image: url(&quot;project://database/Assets/Sprites/Pill.png?fileID=2800000&amp;guid=fdded61763c332a4f84b1552f8ff8a09&amp;type=3#Pill&quot;); -unity-background-scale-mode: scale-to-fit; width: 120px; height: 120px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" style="background-image: url(&quot;project://database/Assets/Sprites/Pill.png?fileID=2800000&amp;guid=fdded61763c332a4f84b1552f8ff8a09&amp;type=3#Pill&quot;); -unity-background-scale-mode: scale-to-fit; width: 120px; height: 120px;" />
+                    <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" style="background-image: url(&quot;project://database/Assets/Sprites/Pill.png?fileID=2800000&amp;guid=fdded61763c332a4f84b1552f8ff8a09&amp;type=3#Pill&quot;); -unity-background-scale-mode: scale-to-fit; width: 120px; height: 120px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="GameOver" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center; visibility: visible; display: none; font-size: 100px;">
             <ui:Label tabindex="-1" text="GAME OVER" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Text" class="text" />

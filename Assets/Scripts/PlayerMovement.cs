@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public event Action DamageTaken;
+    public event Action PillCollected;
 
     private Rigidbody2D _rigidbody;
     private bool _isStopped;
@@ -30,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             DamageTaken?.Invoke();
+        }
+
+        if (other.CompareTag("Pill"))
+        {
+            PillCollected?.Invoke();
         }
     }
 }
