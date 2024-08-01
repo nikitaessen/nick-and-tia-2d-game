@@ -9,7 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public event Action PillCollected;
 
     private Rigidbody2D _rigidbody;
+    private Animator _animator;
     private bool _isStopped;
+    private bool _needsFlip;
+
+    [SerializeField]
+    private Facing facing = Facing.Left;
+
+    private static readonly int IsWalking = Animator.StringToHash("isWalking");
 
     public void Initialize()
     {
@@ -18,12 +25,35 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         var inputVector = context.ReadValue<Vector2>();
-        _rigidbody.velocity = inputVector * speed;
+        var velocity = inputVector * speed;
+        
+        switch (velocity.x)
+        {
+            case > 0 when facing == Facing.Left:
+            case < 0 when facing == Facing.Right:
+                Flip();
+                break;
+        }
+        
+        _rigidbody.velocity = velocity;
+        _animator.SetBool(IsWalking, Math.Abs(velocity.x)  > 0 || Math.Abs(velocity.y) > 0);
+    }
+
+    private void Flip()
+    {
+        facing = facing == Facing.Right ? Facing.Left : Facing.Right;
+        
+        var transformSnapshot = transform;
+        var flippedScale = transformSnapshot.localScale;
+        
+        flippedScale.x *= -1;
+        transformSnapshot.localScale = flippedScale;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -38,4 +68,10 @@ public class PlayerMovement : MonoBehaviour
             PillCollected?.Invoke();
         }
     }
+}
+
+public enum Facing
+{
+    Right,
+    Left
 }
