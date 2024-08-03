@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameStateController : MonoBehaviour
 {
-    public int insanity = Constants.InsanityAmount;
+    public int insanity;
 
     public delegate void DamageTakenHandler(object sender, DamageTakenEventArgs args);
 
@@ -24,19 +24,17 @@ public class GameStateController : MonoBehaviour
     private void PlayerMovementOnDamageTaken()
     {
         insanity++;
+        Debug.Log(insanity);
         OnDamageTaken?.Invoke(this, new DamageTakenEventArgs(insanity));
-    }
 
-
-    #region Unity Lifecycle
-
-    private void Update()
-    {
-        if (insanity > 3)
+        if (insanity > Constants.InsanityLimit)
         {
             OnGameOver?.Invoke(this, new GameOverEventArgs());
         }
     }
+
+
+    #region Unity Lifecycle
 
     private void OnDisable()
     {

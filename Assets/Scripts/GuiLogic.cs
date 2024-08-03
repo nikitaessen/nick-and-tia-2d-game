@@ -7,13 +7,16 @@ using UnityEngine.UIElements;
 
 public class GuiLogic : MonoBehaviour
 {
-    [SerializeField] private VisualTreeAsset sanityItemUi;
+    [SerializeField] private Sprite brainSprite;
+    [SerializeField] private Sprite damagedBrainSprite;
+    [SerializeField] private Sprite destroyedBrainSprite;
 
     private GameStateController _gameStateController;
     private UIDocument _uiDocument;
     private PillStorage _pillStorage;
 
     private VisualElement InsanityPanel => _uiDocument.rootVisualElement.Q("InsanityPanel");
+    private VisualElement BrainElement => _uiDocument.rootVisualElement.Q("Brain");
     private VisualElement GameOverOverlay => _uiDocument.rootVisualElement.Q("GameOver");
     private Button RestartButton => GameOverOverlay.Q<Button>("RestartButton");
     private Button QuitButton => GameOverOverlay.Q<Button>("QuitButton");
@@ -30,22 +33,13 @@ public class GuiLogic : MonoBehaviour
             pill.style.display = DisplayStyle.None;
         }
 
-        FillInsanity();
+        DrawBrain(brainSprite);
         SubscribeToEvents();
     }
 
-    private void DrawInsanityItem()
+    private void DrawBrain(Sprite sprite)
     {
-        var insanityItem = sanityItemUi.CloneTree();
-        InsanityPanel.Add(insanityItem);
-    }
-
-    private void FillInsanity()
-    {
-        for (var i = 0; i < Constants.InsanityAmount; i++)
-        {
-            DrawInsanityItem();
-        }
+        BrainElement.style.backgroundImage = new StyleBackground(sprite);
     }
 
     private void ShowGameOver()
@@ -56,7 +50,17 @@ public class GuiLogic : MonoBehaviour
 
     private void OnDamageTaken(object sender, DamageTakenEventArgs args)
     {
-        DrawInsanityItem();
+        DrawBrain(SelectBrainSprite(args.Insanity));
+    }
+
+    private Sprite SelectBrainSprite(int insanityAmount)
+    {
+        return insanityAmount switch
+        {
+            0 => brainSprite,
+            1 => damagedBrainSprite,
+            _ => destroyedBrainSprite
+        };
     }
 
     private void OnRestartClick()
