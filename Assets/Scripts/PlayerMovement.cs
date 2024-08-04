@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
 
-    public void Initialize()
+    public void Initialize(SoundPlayer soundPlayer)
     {
     }
 
@@ -42,7 +42,9 @@ public class PlayerMovement : MonoBehaviour
         }
         
         _rigidbody.velocity = velocity;
-        _animator.SetBool(IsWalking, Math.Abs(velocity.x)  > 0 || Math.Abs(velocity.y) > 0);
+        var isWalking = Math.Abs(velocity.x) > 0 || Math.Abs(velocity.y) > 0;
+        //TODO playSound() if walking
+        _animator.SetBool(IsWalking, isWalking);
     }
 
     private void Flip()

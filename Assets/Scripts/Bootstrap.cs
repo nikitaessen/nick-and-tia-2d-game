@@ -9,10 +9,12 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private PillStorage pillStorage;
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private GuiLogic guiLogic;
+    [SerializeField] private SoundPlayer soundPlayer;
 
     private void Awake()
     {
-        playerMovement.Initialize();
+        soundPlayer.Initialize();
+        playerMovement.Initialize(soundPlayer);
         pillStorage.Initialize(playerMovement);
         gameStateController.Initialize(playerMovement);
         guiLogic.Initialize(uiDocument, gameStateController, pillStorage);
