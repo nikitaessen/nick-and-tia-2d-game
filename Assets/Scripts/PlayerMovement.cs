@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     private bool _isTakingDamage;
 
     private Coroutine _damageCooldownCoroutine;
+    private Vector2 _moveInputVector;
+
+    private Vector2 CalculatedVelocity => _moveInputVector * speed;
 
     [SerializeField]
     private Facing facing = Facing.Left;
@@ -32,12 +35,16 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void FixedUpdate()
+    {
+        _rigidbody.velocity = CalculatedVelocity;
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
-        var inputVector = context.ReadValue<Vector2>();
-        var velocity = inputVector * speed;
+        _moveInputVector = context.ReadValue<Vector2>().normalized;
         
-        switch (velocity.x)
+        switch (CalculatedVelocity.x)
         {
             case > 0 when facing == Facing.Left:
             case < 0 when facing == Facing.Right:
@@ -45,8 +52,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
         
-        _rigidbody.velocity = velocity;
-        var isWalking = Math.Abs(velocity.x) > 0 || Math.Abs(velocity.y) > 0;
+        var isWalking = Math.Abs(CalculatedVelocity.x) > 0 || Math.Abs(CalculatedVelocity.y) > 0;
         //TODO playSound() if walking
         _animator.SetBool(IsWalking, isWalking);
     }
