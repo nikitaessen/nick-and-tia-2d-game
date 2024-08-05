@@ -7,8 +7,8 @@
                 <ui:Button text="To main menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" class="button" />
             </ui:VisualElement>
             <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: column; width: 30%; align-self: flex-end;">
-                <ui:Slider label="Sounds" high-value="100" direction="Horizontal" name="SoundsSlider" class="slider" />
-                <ui:Slider label="Music" high-value="100" direction="Horizontal" name="MusicSlider" class="slider" />
+                <ui:Slider label="Sounds" high-value="0" direction="Horizontal" name="SoundsSlider" low-value="-80" class="slider" />
+                <ui:Slider label="Music" high-value="0" direction="Horizontal" name="MusicSlider" low-value="-80" class="slider" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -1,9 +1,19 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class MixerSound : MonoBehaviour
+public class MixerVolumeController : MonoBehaviour
 {
+    public static MixerVolumeController instance;
+    
     [SerializeField] private AudioMixer mixer;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public void SetSoundsVolume(float level)
     {

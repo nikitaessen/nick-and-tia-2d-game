@@ -32,6 +32,7 @@ public class GameStateController : MonoBehaviour
     public void OnPause(InputAction.CallbackContext context)
     {
         isPaused = true;
+        StopTime();
         SwitchInput(GameInputType.UI);
         OnGamePaused?.Invoke();
     }
@@ -39,6 +40,7 @@ public class GameStateController : MonoBehaviour
     public void OnUnpause()
     {
         isPaused = false;
+        ResumeTime();
         SwitchInput(GameInputType.Player);
         OnGameUnpaused?.Invoke();
     }

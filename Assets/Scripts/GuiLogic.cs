@@ -24,6 +24,8 @@ public class GuiLogic : MonoBehaviour
     private Button GameOverQuitButton => GameOverContainer.Q<Button>("QuitButton");
 
     private VisualElement PauseMenuContainer => _uiDocument.rootVisualElement.Q("PauseMenuContainer");
+    private Slider SoundsSlider => PauseMenuContainer.Q<Slider>("SoundsSlider");
+    private Slider MusicSlider => PauseMenuContainer.Q<Slider>("MusicSlider");
     private Button PauseResumeButton => PauseMenuContainer.Q<Button>("ResumeButton");
     private Button PauseQuitButton => PauseMenuContainer.Q<Button>("QuitButton");
 
@@ -152,6 +154,16 @@ public class GuiLogic : MonoBehaviour
         }
     }
 
+    private static void OnSoundsSliderValueChanged(ChangeEvent<float> evt)
+    {
+        MixerVolumeController.instance.SetSoundsVolume(evt.newValue);
+    }
+    
+    private static void OnMusicSliderValueChanged(ChangeEvent<float> evt)
+    {
+        MixerVolumeController.instance.SetMusicVolume(evt.newValue);
+    }
+
     private void SubscribeToEvents()
     {
         _gameStateController.OnDamageTaken += OnDamageTaken;
@@ -160,10 +172,14 @@ public class GuiLogic : MonoBehaviour
         _gameStateController.OnGameUnpaused += OnGameUnpaused;
 
         _pillStorage.OnPillCollect += OnPillCollect;
+        
         GameOverRestartButton.clicked += OnRestartClick;
         GameOverQuitButton.clicked += OnQuitClick;
+        
         PauseQuitButton.clicked += OnQuitClick;
         PauseResumeButton.clicked += OnResumeClick;
+        SoundsSlider.RegisterValueChangedCallback(OnSoundsSliderValueChanged);
+        MusicSlider.RegisterValueChangedCallback(OnMusicSliderValueChanged);
     }
 
     private void UnsubscribeFromEvents()
@@ -174,9 +190,13 @@ public class GuiLogic : MonoBehaviour
         _gameStateController.OnGameUnpaused -= OnGameUnpaused;
 
         _pillStorage.OnPillCollect -= OnPillCollect;
+        
         GameOverRestartButton.clicked -= OnRestartClick;
         GameOverQuitButton.clicked -= OnQuitClick;
+        
         PauseQuitButton.clicked -= OnQuitClick;
         PauseResumeButton.clicked -= OnResumeClick;
+        SoundsSlider.UnregisterValueChangedCallback(OnSoundsSliderValueChanged);
+        MusicSlider.UnregisterValueChangedCallback(OnMusicSliderValueChanged);
     }
 }
