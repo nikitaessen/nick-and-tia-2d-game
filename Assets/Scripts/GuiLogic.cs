@@ -23,10 +23,6 @@ public class GuiLogic : MonoBehaviour
     private Button GameOverRestartButton => GameOverContainer.Q<Button>("RestartButton");
     private Button GameOverQuitButton => GameOverContainer.Q<Button>("QuitButton");
 
-    //TODO
-    // add pause container and set display to none
-    // fix game over and pause mechanics by adding new input scheme
-    // add resume button func, register callback
     private VisualElement PauseMenuContainer => _uiDocument.rootVisualElement.Q("PauseMenuContainer");
     private Button PauseResumeButton => PauseMenuContainer.Q<Button>("ResumeButton");
     private Button PauseQuitButton => PauseMenuContainer.Q<Button>("QuitButton");
