@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameUIStyle.uss?fileID=7433441132597879392&amp;guid=e460c23056327d14ab18684e2f9a63fd&amp;type=3#GameUIStyle" />
+    <ui:VisualElement name="Screen" style="flex-grow: 1;">
+        <ui:VisualElement name="Content" class="background_shadow" style="flex-grow: 1;">
+            <ui:VisualElement style="flex-grow: 1;" />
+            <ui:VisualElement style="flex-grow: 1; height: 456px; align-items: center; justify-content: center;">
+                <ui:Button text="Resume" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResumeButton" class="button" />
+                <ui:Button text="To main menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;" />
+                <ui:VisualElement style="flex-grow: 1;" />
+                <ui:VisualElement style="flex-grow: 1;" />
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:VisualElement style="flex-grow: 1;">
+                        <ui:Slider label="Sounds" high-value="100" direction="Horizontal" name="SoundsSlider" class="slider" />
+                        <ui:Slider label="Music" high-value="100" direction="Horizontal" name="MusicSlider" class="slider" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

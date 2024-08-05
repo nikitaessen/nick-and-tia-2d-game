@@ -10,16 +10,16 @@ public class GuiLogic : MonoBehaviour
     [SerializeField] private Sprite brainSprite;
     [SerializeField] private Sprite damagedBrainSprite;
     [SerializeField] private Sprite destroyedBrainSprite;
+    [SerializeField] private VisualTreeAsset gameOverTemplate;
 
     private GameStateController _gameStateController;
     private UIDocument _uiDocument;
     private PillStorage _pillStorage;
 
-    private VisualElement InsanityPanel => _uiDocument.rootVisualElement.Q("InsanityPanel");
     private VisualElement BrainElement => _uiDocument.rootVisualElement.Q("Brain");
-    private VisualElement GameOverOverlay => _uiDocument.rootVisualElement.Q("GameOver");
-    private Button RestartButton => GameOverOverlay.Q<Button>("RestartButton");
-    private Button QuitButton => GameOverOverlay.Q<Button>("QuitButton");
+    private VisualElement GameOverContainer => _uiDocument.rootVisualElement.Q("GameOverContainer");
+    private Button RestartButton => GameOverContainer.Q<Button>("RestartButton");
+    private Button QuitButton => GameOverContainer.Q<Button>("QuitButton");
     private List<Label> Pills => _uiDocument.rootVisualElement.Q("PillsPanel").Query<Label>().ToList();
 
     public void Initialize(UIDocument uiDocument, GameStateController gameStateController, PillStorage pillStorage)
@@ -33,8 +33,19 @@ public class GuiLogic : MonoBehaviour
             pill.style.display = DisplayStyle.None;
         }
 
+        AddGameOver();
         DrawBrain(brainSprite);
         SubscribeToEvents();
+    }
+
+    private void AddGameOver()
+    {
+        var gameOverClone = gameOverTemplate.CloneTree();
+        gameOverClone.style.width = new StyleLength(Length.Percent(100));
+        gameOverClone.style.height = new StyleLength(Length.Percent(100));
+        gameOverClone.style.display = DisplayStyle.None;
+        
+        GameOverContainer.Add(gameOverClone);
     }
 
     private void DrawBrain(Sprite sprite)
@@ -45,7 +56,7 @@ public class GuiLogic : MonoBehaviour
     private void ShowGameOver()
     {
         Time.timeScale = 0;
-        _uiDocument.rootVisualElement.Q("GameOver").style.display = DisplayStyle.Flex;
+        GameOverContainer.style.display = DisplayStyle.None;
     }
 
     private void OnDamageTaken(object sender, DamageTakenEventArgs args)

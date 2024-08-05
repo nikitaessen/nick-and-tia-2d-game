@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GameUIStyle.uss?fileID=7433441132597879392&amp;guid=e460c23056327d14ab18684e2f9a63fd&amp;type=3#GameUIStyle" />
-    <ui:VisualElement name="Screen" style="flex-grow: 1;">
+    <ui:VisualElement name="Screen" style="flex-grow: 1; position: relative;">
         <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: column;">
             <ui:VisualElement name="InsanityPanel" style="flex-direction: row; height: 182px;">
                 <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Brain" style="width: 246px; -unity-background-scale-mode: scale-to-fit; margin-top: 20px;" />
@@ -15,10 +15,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="GameOver" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center; visibility: visible; display: none; font-size: 100px;">
-            <ui:Label tabindex="-1" text="GAME OVER" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Text" class="text" />
-            <ui:Button text="Restart" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RestartButton" class="button" style="font-size: 40px;" />
-            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" class="button" style="font-size: 40px;" />
-        </ui:VisualElement>
+        <ui:VisualElement name="PauseMenuContainer" style="flex-grow: 1; position: absolute; width: 100%; height: 100%;" />
+        <ui:VisualElement name="GameOverContainer" style="flex-grow: 1; width: 100%; height: 100%; position: absolute;" />
     </ui:VisualElement>
 </ui:UXML>

@@ -13,3 +13,17 @@
 .button:hover {
     scale: 1.1 1.1;
 }
+
+.slider {
+    flex-direction: column;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+}
+
+.background_shadow {
+    background-color: rgba(29, 41, 31, 0.52);
+}

@@ -4830,6 +4830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755897655}
   - component: {fileID: 755897654}
+  - component: {fileID: 755897656}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -4868,6 +4869,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755897656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755897653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0448ebc9860f64488f72f2ef0007766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brainSprite: {fileID: -2077858631, guid: 3031a940c8350d745b15bca44ec8fd6d, type: 3}
+  damagedBrainSprite: {fileID: 1435923417, guid: 3031a940c8350d745b15bca44ec8fd6d, type: 3}
+  destroyedBrainSprite: {fileID: 318743227, guid: 3031a940c8350d745b15bca44ec8fd6d, type: 3}
+  gameOverTemplate: {fileID: 9197481963319205126, guid: 2733c835df2b9334096db3ae8f1fae81, type: 3}
 --- !u!1 &781073142
 GameObject:
   m_ObjectHideFlags: 0
@@ -9182,7 +9199,7 @@ MonoBehaviour:
   gameStateController: {fileID: 2145953185}
   pillStorage: {fileID: 1906241865}
   uiDocument: {fileID: 755897654}
-  guiLogic: {fileID: 2074135594}
+  guiLogic: {fileID: 755897656}
   soundPlayer: {fileID: 31213379}
 --- !u!1 &1404186194
 GameObject:
@@ -12955,53 +12972,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7812528674920508852, guid: f450437c28d307848b22314179a44905, type: 3}
   m_PrefabInstance: {fileID: 338286941}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2074135593
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2074135595}
-  - component: {fileID: 2074135594}
-  m_Layer: 0
-  m_Name: GuiLogic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2074135594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074135593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0448ebc9860f64488f72f2ef0007766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brainSprite: {fileID: -2077858631, guid: 3031a940c8350d745b15bca44ec8fd6d, type: 3}
-  damagedBrainSprite: {fileID: 1435923417, guid: 3031a940c8350d745b15bca44ec8fd6d, type: 3}
-  destroyedBrainSprite: {fileID: 318743227, guid: 3031a940c8350d745b15bca44ec8fd6d, type: 3}
---- !u!4 &2074135595
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074135593}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3862434, y: 0.5237745, z: 0.03449549}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2075905308
 GameObject:
   m_ObjectHideFlags: 0
@@ -13758,7 +13728,6 @@ SceneRoots:
   - {fileID: 8068737720904952013}
   - {fileID: 2145953186}
   - {fileID: 755897655}
-  - {fileID: 2074135595}
   - {fileID: 1906241866}
   - {fileID: 1466161061}
   - {fileID: 797656877}
