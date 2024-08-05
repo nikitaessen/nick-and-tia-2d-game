@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     private bool _isStopped;
     private bool _needsFlip;
+    private bool _isTakingDamage;
+
+    private Coroutine _damageCooldownCoroutine;
 
     [SerializeField]
     private Facing facing = Facing.Left;
@@ -62,12 +66,32 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            DamageTaken?.Invoke();
+            _isTakingDamage = true;
+            _damageCooldownCoroutine = StartCoroutine(TakeDamageAndWait());
+            
         }
 
         if (other.CompareTag("Pill"))
         {
             PillCollected?.Invoke();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            _isTakingDamage = false;
+            StopCoroutine(_damageCooldownCoroutine);
+        }
+    }
+    
+    private IEnumerator TakeDamageAndWait()
+    {
+        while (_isTakingDamage)
+        {
+            DamageTaken?.Invoke();
+            yield return new WaitForSeconds(1f);
         }
     }
 }

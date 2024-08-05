@@ -32,7 +32,7 @@ public class EnemyLogic : MonoBehaviour
         {
             SetNextTarget(_followTarget.transform);
         }
-        
+
         var remainingDistance = FindDirectionAndMove();
 
         if (Math.Abs(remainingDistance.x) < 0.3f && Math.Abs(remainingDistance.y) < 0.3f)
@@ -68,7 +68,7 @@ public class EnemyLogic : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        
+
         _playerDetected = true;
         _followTarget = other.gameObject;
     }
@@ -85,7 +85,8 @@ public class EnemyLogic : MonoBehaviour
     {
         yield return new WaitForSeconds(countdownTime);
 
-        StartCoroutine(DissolveAndDeactivate());
+        if (isActiveAndEnabled)
+            StartCoroutine(DissolveAndDeactivate());
     }
 
     private IEnumerator DissolveAndDeactivate()

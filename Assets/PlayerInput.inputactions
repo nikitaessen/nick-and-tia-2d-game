@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "OpenMenu",
+                    "type": "Button",
+                    "id": "f53d976f-15ef-4e50-8427-c2fed115b614",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,45 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1869e4c1-da49-40a6-b914-0a9ebb015df2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "897e1b1d-d8c0-4741-b262-5b1d85b1e20e",
+            "actions": [
+                {
+                    "name": "CloseMenu",
+                    "type": "Button",
+                    "id": "688a8750-3598-4136-a47b-17ff9cd15b92",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6e644044-3391-4a26-a294-1c679c0c9e3f",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

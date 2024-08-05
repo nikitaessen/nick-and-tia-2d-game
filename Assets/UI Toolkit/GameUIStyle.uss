@@ -24,6 +24,10 @@
     margin-left: 40px;
 }
 
+.slider .unity-base-field__label--with-dragger {
+    color: white;
+}
+
 .background_shadow {
     background-color: rgba(29, 41, 31, 0.52);
 }

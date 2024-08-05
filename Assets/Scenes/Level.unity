@@ -3146,8 +3146,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 369597049
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 539230463, guid: 44aa5dfc98e6f6a4fa6392cf020220f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4270,8 +4270,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 369597049
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -258867461, guid: 44aa5dfc98e6f6a4fa6392cf020220f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4885,6 +4885,7 @@ MonoBehaviour:
   damagedBrainSprite: {fileID: 1435923417, guid: 3031a940c8350d745b15bca44ec8fd6d, type: 3}
   destroyedBrainSprite: {fileID: 318743227, guid: 3031a940c8350d745b15bca44ec8fd6d, type: 3}
   gameOverTemplate: {fileID: 9197481963319205126, guid: 2733c835df2b9334096db3ae8f1fae81, type: 3}
+  pauseTemplate: {fileID: 9197481963319205126, guid: 6f207a3d4d699654d81eada142a78715, type: 3}
 --- !u!1 &781073142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,6 +5513,116 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &838088553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 838088555}
+  - component: {fileID: 838088554}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &838088554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838088553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: eaa03ed673e1ffd44b3d7856ea14de94, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1668248398}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ecce60fe-b91b-4799-a88f-de7e5d85dfae
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/a,/Keyboard/s,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2145953185}
+        m_TargetAssemblyTypeName: GameStateController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f53d976f-15ef-4e50-8427-c2fed115b614
+    m_ActionName: Player/OpenMenu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2145953185}
+        m_TargetAssemblyTypeName: GameStateController, Assembly-CSharp
+        m_MethodName: OnUnpause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 688a8750-3598-4136-a47b-17ff9cd15b92
+    m_ActionName: UI/CloseMenu[/Keyboard/escape]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!4 &838088555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838088553}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.79444677, y: 0.41190314, z: 0.03356144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &853159996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7687,8 +7798,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 369597049
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 539230463, guid: 44aa5dfc98e6f6a4fa6392cf020220f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9201,6 +9312,7 @@ MonoBehaviour:
   uiDocument: {fileID: 755897654}
   guiLogic: {fileID: 755897656}
   soundPlayer: {fileID: 31213379}
+  playerInput: {fileID: 838088554}
 --- !u!1 &1404186194
 GameObject:
   m_ObjectHideFlags: 0
@@ -9296,7 +9408,7 @@ GameObject:
   - component: {fileID: 1410623960}
   - component: {fileID: 1410623959}
   m_Layer: 0
-  m_Name: fog_0
+  m_Name: Fog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9340,8 +9452,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 369597049
-  m_SortingLayer: -1
+  m_SortingLayerID: -156539697
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 539230463, guid: 44aa5dfc98e6f6a4fa6392cf020220f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10093,8 +10205,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 369597049
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 539230463, guid: 44aa5dfc98e6f6a4fa6392cf020220f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12257,8 +12369,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 369597049
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -258867461, guid: 44aa5dfc98e6f6a4fa6392cf020220f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13415,6 +13527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insanity: 0
+  isPaused: 0
 --- !u!4 &2145953186
 Transform:
   m_ObjectHideFlags: 0
@@ -13653,6 +13766,26 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3846606284991569865, guid: e7990104d033985408d4d590bd12d17a, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846606284991569865, guid: e7990104d033985408d4d590bd12d17a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: f53d976f-15ef-4e50-8427-c2fed115b614
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846606284991569865, guid: e7990104d033985408d4d590bd12d17a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: b60e44e0-2186-47c6-87f1-d5ee9d2a81fa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846606284991569865, guid: e7990104d033985408d4d590bd12d17a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: Player/OpenMenu[/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846606284991569865, guid: e7990104d033985408d4d590bd12d17a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: UI/New action
+      objectReference: {fileID: 0}
     - target: {fileID: 3936490416583152247, guid: e7990104d033985408d4d590bd12d17a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -13739,3 +13872,4 @@ SceneRoots:
   - {fileID: 8008626793143825182}
   - {fileID: 1410623960}
   - {fileID: 31213380}
+  - {fileID: 838088555}
