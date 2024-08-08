@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6107456149534806855}
   - component: {fileID: 3679527853377940263}
   - component: {fileID: 498930710862642047}
-  - component: {fileID: 357696137073274988}
+  - component: {fileID: 9005991924255701953}
   - component: {fileID: 3508013905447197766}
   m_Layer: 0
   m_Name: Player
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2014027827
-  m_SortingLayer: 1
+  m_SortingLayerID: 1908398959
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1714681052, guid: 2e4fcc5b455bc7346a5d21ec0666a029, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &3679527853377940263
 Rigidbody2D:
   serializedVersion: 4
@@ -113,7 +113,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &498930710862642047
 MonoBehaviour:
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   facing: 1
---- !u!70 &357696137073274988
-CapsuleCollider2D:
+--- !u!61 &9005991924255701953
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -161,9 +161,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.019999996, y: -0.24558812}
-  m_Size: {x: 0.42359287, y: 1.4688238}
-  m_Direction: 0
+  m_Offset: {x: -0.005276531, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.28}
+    oldSize: {x: 0.8624161, y: 2.375839}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3836003, y: 0.7983433}
+  m_EdgeRadius: 0
 --- !u!95 &3508013905447197766
 Animator:
   serializedVersion: 5
