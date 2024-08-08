@@ -17,11 +17,12 @@ public class MixerVolumeController : MonoBehaviour
 
     public void SetSoundsVolume(float level)
     {
-        mixer.SetFloat("SoundsVolume", Mathf.Log10(level) * 20);
+        mixer.SetFloat("SoundsVolume", level);
+        Debug.Log($"sound: {level}");
     }
 
     public void SetMusicVolume(float level)
     {
-        mixer.SetFloat("MusicVolume", Mathf.Log10(level) * 20);
+        mixer.SetFloat("MusicVolume", level);
     }
 }

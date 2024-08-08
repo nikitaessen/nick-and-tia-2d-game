@@ -18,4 +18,17 @@ public class SoundPlayer : MonoBehaviour
         var length = audioSource.clip.length;
         Destroy(audioSource.gameObject, length);
     }
+
+    public void PlayRandomSoundFromArray(AudioClip[] clipsArray, Transform spawnPosition, float volume)
+    {
+        var audioSource = Instantiate(soundSource, spawnPosition.position, Quaternion.identity);
+        var randomIndex = Random.Range(0, clipsArray.Length);
+
+        audioSource.clip = clipsArray[randomIndex];
+        audioSource.volume = volume;
+        audioSource.Play();
+
+        var length = audioSource.clip.length;
+        Destroy(audioSource.gameObject, length);
+    }
 }

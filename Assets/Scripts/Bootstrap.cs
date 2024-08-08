@@ -12,10 +12,12 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private GuiLogic guiLogic;
     [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private CharacterSound characterSound;
 
     private void Awake()
     {
         soundPlayer.Initialize();
+        characterSound.Initialize(soundPlayer);
         playerMovement.Initialize(soundPlayer);
         pillStorage.Initialize(playerMovement);
         gameStateController.Initialize(playerMovement, playerInput);

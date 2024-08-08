@@ -399,7 +399,7 @@ AudioSource:
   m_GameObject: {fileID: 55549901}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -797230500624608735, guid: 44c44012132374c4a95e4015baa9700f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3454,6 +3454,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.240468, y: 0.578897}
   m_EdgeRadius: 0
+--- !u!1 &545057185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3936490416583152247, guid: e7990104d033985408d4d590bd12d17a, type: 3}
+  m_PrefabInstance: {fileID: 8068737720904952013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &546809924
 GameObject:
   m_ObjectHideFlags: 0
@@ -9717,6 +9722,7 @@ MonoBehaviour:
   guiLogic: {fileID: 755897656}
   soundPlayer: {fileID: 31213379}
   playerInput: {fileID: 838088554}
+  characterSound: {fileID: 1668248410}
 --- !u!1 &1404186194
 GameObject:
   m_ObjectHideFlags: 0
@@ -11579,12 +11585,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 498930710862642047, guid: e7990104d033985408d4d590bd12d17a, type: 3}
   m_PrefabInstance: {fileID: 8068737720904952013}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 545057185}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a292a6c048968fd4c8267ba33edba691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1668248410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545057185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d3efaec090ed543bd568d96dafa102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepAudioClips:
+  - {fileID: 8300000, guid: 0e454c0e78a767c4fa2ef11f1dc0d82c, type: 3}
+  - {fileID: 8300000, guid: 4cde192642d5cfa44a895f35fd0633f7, type: 3}
+  - {fileID: 8300000, guid: 06715fbe2c5033443bd4be5c9c2645ed, type: 3}
+  takeDamageAudio: {fileID: 0}
 --- !u!1001 &1706194093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14855,7 +14878,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3936490416583152247, guid: e7990104d033985408d4d590bd12d17a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1668248410}
   m_SourcePrefab: {fileID: 100100000, guid: e7990104d033985408d4d590bd12d17a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
