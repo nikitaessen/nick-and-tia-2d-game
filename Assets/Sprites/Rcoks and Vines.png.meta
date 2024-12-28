@@ -100,12 +100,12 @@ TextureImporter:
       name: Rcoks and Vines_0
       rect:
         serializedVersion: 2
-        x: 52
+        x: 53
         y: 352
         width: 463
         height: 198
       alignment: 9
-      pivot: {x: 0.5, y: 0.3}
+      pivot: {x: 0.4943332, y: 0.43251392}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: Rcoks and Vines_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 87
-        width: 509
-        height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 38
+        y: 94
+        width: 507
+        height: 136
+      alignment: 9
+      pivot: {x: 0.5012836, y: 0.5675233}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
