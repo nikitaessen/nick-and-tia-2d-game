@@ -10,6 +10,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private PillStorage pillStorage;
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private GuiLogic guiLogic;
+    [SerializeField] private MixerVolumeController mixerVolumeController;
     [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private CharacterSound characterSound;
@@ -21,6 +22,6 @@ public class Bootstrap : MonoBehaviour
         playerMovement.Initialize(soundPlayer);
         pillStorage.Initialize(playerMovement);
         gameStateController.Initialize(playerMovement, playerInput);
-        guiLogic.Initialize(uiDocument, gameStateController, pillStorage);
+        guiLogic.Initialize(uiDocument, gameStateController, pillStorage, mixerVolumeController);
     }
 }
