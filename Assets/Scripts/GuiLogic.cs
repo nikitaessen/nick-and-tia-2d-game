@@ -14,6 +14,7 @@ public class GuiLogic : MonoBehaviour
     [SerializeField] private VisualTreeAsset pauseTemplate;
 
     private GameStateController _gameStateController;
+    private MixerVolumeController _mixerVolumeController;
     private UIDocument _uiDocument;
     private PillStorage _pillStorage;
 
@@ -31,11 +32,16 @@ public class GuiLogic : MonoBehaviour
 
     private List<Label> Pills => _uiDocument.rootVisualElement.Q("PillsPanel").Query<Label>().ToList();
 
-    public void Initialize(UIDocument uiDocument, GameStateController gameStateController, PillStorage pillStorage)
+    public void Initialize(
+        UIDocument uiDocument,
+        GameStateController gameStateController,
+        PillStorage pillStorage,
+        MixerVolumeController mixerVolumeController)
     {
         _uiDocument = uiDocument;
         _gameStateController = gameStateController;
         _pillStorage = pillStorage;
+        _mixerVolumeController = mixerVolumeController;
 
         foreach (var pill in Pills)
         {
@@ -154,14 +160,14 @@ public class GuiLogic : MonoBehaviour
         }
     }
 
-    private static void OnSoundsSliderValueChanged(ChangeEvent<float> evt)
+    private void OnSoundsSliderValueChanged(ChangeEvent<float> evt)
     {
-        MixerVolumeController.instance.SetSoundsVolume(evt.newValue);
+        _mixerVolumeController.SetSoundsVolume(evt.newValue);
     }
-    
-    private static void OnMusicSliderValueChanged(ChangeEvent<float> evt)
+
+    private void OnMusicSliderValueChanged(ChangeEvent<float> evt)
     {
-        MixerVolumeController.instance.SetMusicVolume(evt.newValue);
+        _mixerVolumeController.SetMusicVolume(evt.newValue);
     }
 
     private void SubscribeToEvents()
@@ -172,14 +178,16 @@ public class GuiLogic : MonoBehaviour
         _gameStateController.OnGameUnpaused += OnGameUnpaused;
 
         _pillStorage.OnPillCollect += OnPillCollect;
-        
+
         GameOverRestartButton.clicked += OnRestartClick;
         GameOverQuitButton.clicked += OnQuitClick;
-        
+
         PauseQuitButton.clicked += OnQuitClick;
         PauseResumeButton.clicked += OnResumeClick;
         SoundsSlider.RegisterValueChangedCallback(OnSoundsSliderValueChanged);
+        SoundsSlider.value = 1;
         MusicSlider.RegisterValueChangedCallback(OnMusicSliderValueChanged);
+        MusicSlider.value = 1;
     }
 
     private void UnsubscribeFromEvents()
@@ -190,10 +198,10 @@ public class GuiLogic : MonoBehaviour
         _gameStateController.OnGameUnpaused -= OnGameUnpaused;
 
         _pillStorage.OnPillCollect -= OnPillCollect;
-        
+
         GameOverRestartButton.clicked -= OnRestartClick;
         GameOverQuitButton.clicked -= OnQuitClick;
-        
+
         PauseQuitButton.clicked -= OnQuitClick;
         PauseResumeButton.clicked -= OnResumeClick;
         SoundsSlider.UnregisterValueChangedCallback(OnSoundsSliderValueChanged);
