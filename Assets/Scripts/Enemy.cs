@@ -8,6 +8,7 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] private float countdownTime = 3f;
     [SerializeField] private float fadeDuration;
     [SerializeField] private float speed;
+    [SerializeField] private float followDistance = 0.95f;
     [SerializeField] private List<Transform> targets;
 
     private Rigidbody2D _rigidbody;
@@ -30,6 +31,12 @@ public class EnemyLogic : MonoBehaviour
     {
         if (_playerDetected)
         {
+            if (Vector3.Distance(_followTarget.transform.position, transform.position) <= followDistance)
+            {
+                _rigidbody.velocity = Vector2.zero;
+                return;
+            }
+
             SetNextTarget(_followTarget.transform);
         }
 
@@ -78,7 +85,9 @@ public class EnemyLogic : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         _playerDetected = false;
-        StartCoroutine(CountdownAndDisappear());
+
+        if (isActiveAndEnabled)
+            StartCoroutine(CountdownAndDisappear());
     }
 
     private IEnumerator CountdownAndDisappear()

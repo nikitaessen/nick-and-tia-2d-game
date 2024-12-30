@@ -20,8 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 CalculatedVelocity => _moveInputVector * speed;
 
-    [SerializeField]
-    private Facing facing = Facing.Left;
+    [SerializeField] private Facing facing = Facing.Left;
 
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
 
@@ -43,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInputVector = context.ReadValue<Vector2>().normalized;
-        
+
         switch (CalculatedVelocity.x)
         {
             case > 0 when facing == Facing.Left:
@@ -51,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
                 break;
         }
-        
+
         var isWalking = Math.Abs(CalculatedVelocity.x) > 0 || Math.Abs(CalculatedVelocity.y) > 0;
         //TODO playSound() if walking
         _animator.SetBool(IsWalking, isWalking);
@@ -60,10 +59,10 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         facing = facing == Facing.Right ? Facing.Left : Facing.Right;
-        
+
         var transformSnapshot = transform;
         var flippedScale = transformSnapshot.localScale;
-        
+
         flippedScale.x *= -1;
         transformSnapshot.localScale = flippedScale;
     }
@@ -74,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _isTakingDamage = true;
             _damageCooldownCoroutine = StartCoroutine(TakeDamageAndWait());
-            
         }
 
         if (other.CompareTag("Pill"))
@@ -91,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             StopCoroutine(_damageCooldownCoroutine);
         }
     }
-    
+
     private IEnumerator TakeDamageAndWait()
     {
         while (_isTakingDamage)
