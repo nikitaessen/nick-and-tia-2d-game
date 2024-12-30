@@ -101,7 +101,7 @@
                     "name": "CloseMenu",
                     "type": "Button",
                     "id": "688a8750-3598-4136-a47b-17ff9cd15b92",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
