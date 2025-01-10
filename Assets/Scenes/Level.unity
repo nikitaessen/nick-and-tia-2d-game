@@ -22617,6 +22617,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4cde192642d5cfa44a895f35fd0633f7, type: 3}
   - {fileID: 8300000, guid: 06715fbe2c5033443bd4be5c9c2645ed, type: 3}
   takeDamageAudio: {fileID: 0}
+  matchLightingAudio: {fileID: 8300000, guid: e5ba09aac540eb04593735d5d2e1440d, type: 3}
 --- !u!4 &1668248415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5630614187405557516, guid: e7990104d033985408d4d590bd12d17a, type: 3}
@@ -22634,6 +22635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea49e73d2abeb4946a595a87e195c08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matchLightingDuration: 9
 --- !u!1 &1675992511
 GameObject:
   m_ObjectHideFlags: 0
