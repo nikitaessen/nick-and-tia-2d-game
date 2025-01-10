@@ -52,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         var isWalking = Math.Abs(CalculatedVelocity.x) > 0 || Math.Abs(CalculatedVelocity.y) > 0;
-        //TODO playSound() if walking
         _animator.SetBool(IsWalking, isWalking);
     }
 
