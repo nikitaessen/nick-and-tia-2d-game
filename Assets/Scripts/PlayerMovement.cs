@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        Debug.Log("hello");
         _moveInputVector = context.ReadValue<Vector2>().normalized;
 
         switch (CalculatedVelocity.x)

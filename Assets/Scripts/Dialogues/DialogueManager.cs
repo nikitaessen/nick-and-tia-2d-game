@@ -1,40 +1,26 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Dialogue : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-
     public string[] lines;
-
     public float textSpeed;
+    public GameObject dialogueBox;
+    
     private int index;
 
-    private void Start()
+    void Start()
     {
+        dialogueBox.SetActive(false);
         textComponent.text = string.Empty;
-        StartDialogue();
     }
 
-    private void StartDialogue()
+    void Update()
     {
-        index = 0;
-        StartCoroutine(TypeLine());
-    }
-    
-    private IEnumerator TypeLine()
-    {
-        foreach (char c in lines[index])
-        {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (textComponent.text == lines[index])
             {
@@ -43,8 +29,23 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    public void StartDialogue()
+    {
+        index = 0;
+        StartCoroutine(TypeLine());
+        dialogueBox.SetActive(true);
+    }
 
-    private void NextLine()
+    IEnumerator TypeLine()
+    {
+        foreach (char c in lines[index].ToCharArray())
+        {
+            textComponent.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+    }
+
+    void NextLine()
     {
         if (index < lines.Length - 1)
         {
@@ -54,7 +55,7 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            dialogueBox.SetActive(false);
         }
     }
 }
