@@ -159,8 +159,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1908398959
-  m_SortingLayer: 2
+  m_SortingLayerID: 1523329753
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1848243834, guid: fd746b2f7f4de9549b78c2b1b93fd79d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -293,9 +293,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footstepAudioClips:
-  - {fileID: 8300000, guid: 0e454c0e78a767c4fa2ef11f1dc0d82c, type: 3}
-  - {fileID: 8300000, guid: 4cde192642d5cfa44a895f35fd0633f7, type: 3}
-  - {fileID: 8300000, guid: 06715fbe2c5033443bd4be5c9c2645ed, type: 3}
+  - {fileID: 8300000, guid: 71d13a4426edfdb42a6d72fd4e4cc23e, type: 3}
+  - {fileID: 8300000, guid: 80627e4e663c93344b142fdc77cb588f, type: 3}
+  - {fileID: 8300000, guid: 04c1529b99ef20b4cad1b7dd8e319d4d, type: 3}
+  - {fileID: 8300000, guid: e48f5b4d84209364db08df9f9b5f9aa2, type: 3}
+  - {fileID: 8300000, guid: 79d72373b394e3b44b841cac61c5dd2c, type: 3}
+  - {fileID: 8300000, guid: d1e1e6e2befffee4ca8704e92a3972bb, type: 3}
   takeDamageAudio: {fileID: 0}
   matchLightingAudio: {fileID: 8300000, guid: e5ba09aac540eb04593735d5d2e1440d, type: 3}
 --- !u!114 &6452972128099718662
