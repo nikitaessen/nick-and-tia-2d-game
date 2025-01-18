@@ -11,7 +11,7 @@ public class CabinBootstrap : MonoBehaviour
     private void Awake()
     {
         soundPlayer.Initialize();
-        playerMovement.Initialize(soundPlayer);
+        playerMovement.Initialize();
         characterSound.Initialize(soundPlayer);
     }
 }

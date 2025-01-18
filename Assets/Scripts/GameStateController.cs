@@ -9,6 +9,8 @@ public class GameStateController : MonoBehaviour
 
     public bool isPaused;
 
+    [SerializeField] private AudioClip gameOverAudioClip;
+
     public delegate void DamageTakenHandler(object sender, DamageTakenEventArgs args);
 
     public delegate void GameOverHandler(object sender, GameOverEventArgs args);
@@ -20,11 +22,13 @@ public class GameStateController : MonoBehaviour
 
     private PlayerMovement _playerMovement;
     private PlayerInput _playerInput;
+    private SoundPlayer _soundPlayer;
 
-    public void Initialize(PlayerMovement playerMovement, PlayerInput playerInput)
+    public void Initialize(PlayerMovement playerMovement, PlayerInput playerInput, SoundPlayer soundPlayer)
     {
         _playerMovement = playerMovement;
         _playerInput = playerInput;
+        _soundPlayer = soundPlayer;
 
         SubscribeToEvents();
     }
@@ -53,12 +57,14 @@ public class GameStateController : MonoBehaviour
 
         if (insanity > Constants.InsanityLimit)
         {
+            StopTime();
+            _soundPlayer.PlaySound(gameOverAudioClip, _playerMovement.transform, 0.7f);
             OnGameOver?.Invoke(this, new GameOverEventArgs());
             SwitchInput(GameInputType.UI);
         }
     }
 
-    public static void StopTime()
+    private static void StopTime()
     {
         Time.timeScale = 0;
     }

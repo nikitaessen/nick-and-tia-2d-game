@@ -17,11 +17,12 @@ public class Bootstrap : MonoBehaviour
 
     private void Awake()
     {
+        playerMovement.Initialize();
         soundPlayer.Initialize();
         characterSound.Initialize(soundPlayer);
-        playerMovement.Initialize(soundPlayer);
         pillStorage.Initialize(playerMovement);
-        gameStateController.Initialize(playerMovement, playerInput);
+        gameStateController.Initialize(playerMovement, playerInput, soundPlayer);
+        mixerVolumeController.Initialize(gameStateController);
         guiLogic.Initialize(uiDocument, gameStateController, pillStorage, mixerVolumeController);
     }
 }

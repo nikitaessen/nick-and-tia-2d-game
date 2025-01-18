@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
 
-    public void Initialize(SoundPlayer soundPlayer)
+    public void Initialize()
     {
     }
 

@@ -84,7 +84,6 @@ public class GuiLogic : MonoBehaviour
 
     private void ShowGameOver()
     {
-        GameStateController.StopTime();
         GameOverContainer.style.display = DisplayStyle.Flex;
     }
 
