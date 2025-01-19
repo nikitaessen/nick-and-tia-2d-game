@@ -10,6 +10,8 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float followDistance = 0.95f;
     [SerializeField] private List<Transform> targets;
+    [SerializeField] private Facing facing = Facing.Left;
+
 
     private Rigidbody2D _rigidbody;
     private CircleCollider2D _collider;
@@ -63,8 +65,27 @@ public class EnemyLogic : MonoBehaviour
     {
         var direction = _currentTargetTransform.position - transform.position;
         _rigidbody.velocity = new Vector2(direction.normalized.x * speed, direction.normalized.y * speed);
+        
+        switch (_rigidbody.velocity.x)
+        {
+            case > 0 when facing == Facing.Left:
+            case < 0 when facing == Facing.Right:
+                Flip();
+                break;
+        }
 
         return direction;
+    }
+    
+    private void Flip()
+    {
+        facing = facing == Facing.Right ? Facing.Left : Facing.Right;
+
+        var transformSnapshot = transform;
+        var flippedScale = transformSnapshot.localScale;
+
+        flippedScale.x *= -1;
+        transformSnapshot.localScale = flippedScale;
     }
 
     private void SetNextTarget(Transform nextTarget)

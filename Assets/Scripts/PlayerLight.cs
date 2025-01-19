@@ -26,6 +26,12 @@ public class PlayerLight : MonoBehaviour
         SetLightToDefault();
     }
 
+    public void TurnOnLanternLight()
+    {
+        // TODO set lantern light properties
+        SetBiggerLight();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Match"))
