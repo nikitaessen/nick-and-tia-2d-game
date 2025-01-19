@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isStopped;
     private bool _needsFlip;
     private bool _isTakingDamage;
+    private bool _isInvulnerable;
 
     private Coroutine _damageCooldownCoroutine;
     private Vector2 _moveInputVector;
@@ -39,9 +40,13 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.velocity = CalculatedVelocity;
     }
 
+    public void EnableInvulnerability()
+    {
+        _isInvulnerable = true;
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
-        Debug.Log("hello");
         _moveInputVector = context.ReadValue<Vector2>().normalized;
 
         switch (CalculatedVelocity.x)
@@ -69,8 +74,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("EnemyDetect"))
+        {
+            if (_isInvulnerable)
+            {
+                var enemy = other.GetComponentInParent<EnemyLogic>();
+                enemy.Burn();
+            }
+        }
+
         if (other.CompareTag("Enemy"))
         {
+            if (_isInvulnerable)
+            {
+                return;
+            }
+
             _isTakingDamage = true;
             _damageCooldownCoroutine = StartCoroutine(TakeDamageAndWait());
         }
@@ -83,9 +102,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!other.CompareTag("Enemy")) return;
+
+        _isTakingDamage = false;
+        if (_damageCooldownCoroutine != null)
         {
-            _isTakingDamage = false;
             StopCoroutine(_damageCooldownCoroutine);
         }
     }

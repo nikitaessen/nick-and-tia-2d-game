@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Pill
   - Match
+  - EnemyDetect
   layers:
   - Default
   - TransparentFX

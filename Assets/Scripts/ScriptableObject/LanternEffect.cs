@@ -9,6 +9,9 @@ namespace ScriptableObject
         {
             var playerLight = player.GetComponent<PlayerLight>();
             playerLight.TurnOnLanternLight();
+
+            var playerMovement = player.GetComponent<PlayerMovement>();
+            playerMovement.EnableInvulnerability();
         }
     }
 }

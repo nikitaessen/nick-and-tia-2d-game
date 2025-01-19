@@ -22,6 +22,12 @@ public class EnemyLogic : MonoBehaviour
     private Transform _currentTargetTransform;
     private GameObject _followTarget;
 
+    public void Burn()
+    {
+        //TODO view burn animation or sprite and destroy
+        speed = 0;
+    }
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
