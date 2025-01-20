@@ -26,10 +26,8 @@ public static class SettingsRepository
             Debug.Log("Loaded settings");
             return data;
         }
-        else
-        {
-            Debug.LogWarning("Settings not found");
-            return new GameSettings();
-        }
+
+        Debug.LogWarning("Settings not found");
+        return new GameSettings();
     }
 }

@@ -21,10 +21,8 @@ public static class SaveRepository
             Debug.Log("Game loaded");
             return data;
         }
-        else
-        {
-            Debug.LogWarning("Save file not found");
-            return new SaveData();
-        }
+
+        Debug.LogWarning("Save file not found");
+        return new SaveData();
     }
 }
