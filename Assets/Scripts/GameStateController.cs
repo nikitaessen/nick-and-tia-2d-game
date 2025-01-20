@@ -10,7 +10,7 @@ public class GameStateController : MonoBehaviour
     public bool isPaused;
 
     [SerializeField] private AudioClip gameOverAudioClip;
-
+    
     public delegate void DamageTakenHandler(object sender, DamageTakenEventArgs args);
 
     public delegate void GameOverHandler(object sender, GameOverEventArgs args);

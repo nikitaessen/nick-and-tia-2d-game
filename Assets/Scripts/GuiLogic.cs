@@ -162,11 +162,33 @@ public class GuiLogic : MonoBehaviour
     private void OnSoundsSliderValueChanged(ChangeEvent<float> evt)
     {
         _mixerVolumeController.SetSoundsVolume(evt.newValue);
+        SaveSoundSettings(evt.newValue);
     }
 
     private void OnMusicSliderValueChanged(ChangeEvent<float> evt)
     {
         _mixerVolumeController.SetMusicVolume(evt.newValue);
+        SaveMusicSettings(evt.newValue);
+    }
+
+    private static void SaveSoundSettings(float value)
+    {
+        var settings = SettingsRepository.LoadSettings();
+        SettingsRepository.SaveSettings(new GameSettings
+        {
+            SoundVolume = value,
+            MusicVolume = settings.MusicVolume
+        });
+    }
+    
+    private static void SaveMusicSettings(float value)
+    {
+        var settings = SettingsRepository.LoadSettings();
+        SettingsRepository.SaveSettings(new GameSettings
+        {
+            SoundVolume = settings.SoundVolume,
+            MusicVolume = value
+        });
     }
 
     private void SubscribeToEvents()
@@ -183,10 +205,12 @@ public class GuiLogic : MonoBehaviour
 
         PauseQuitButton.clicked += OnQuitClick;
         PauseResumeButton.clicked += OnResumeClick;
+        
+        var settings = SettingsRepository.LoadSettings();
         SoundsSlider.RegisterValueChangedCallback(OnSoundsSliderValueChanged);
-        SoundsSlider.value = 1;
+        SoundsSlider.value = settings.SoundVolume;
         MusicSlider.RegisterValueChangedCallback(OnMusicSliderValueChanged);
-        MusicSlider.value = 1;
+        MusicSlider.value = settings.MusicVolume;
     }
 
     private void UnsubscribeFromEvents()

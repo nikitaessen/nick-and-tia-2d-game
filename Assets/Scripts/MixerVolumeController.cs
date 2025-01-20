@@ -11,6 +11,9 @@ public class MixerVolumeController : MonoBehaviour
     public void Initialize(GameStateController gameStateController)
     {
         _gameStateController = gameStateController;
+        var settings = SettingsRepository.LoadSettings();
+        SetSoundsVolume(settings.SoundVolume);
+        SetMusicVolume(settings.MusicVolume);
         SubscribeToEvents();
     }
 
