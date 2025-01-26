@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
     {
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("OpeningScene");
         transitionAnim.SetTrigger("Start");
     }
 }
